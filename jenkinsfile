@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('git checkout') {
             steps {
-             git 'https://github.com/SandhyaReddy-2713/Java-Springboot.git'
+             git 'https://github.com/SandhyaReddy-2713/springboot.git'
             }
         }
          stage('compile') {
@@ -24,9 +24,9 @@ pipeline {
          stage('code analysis') {
             steps {
               withSonarQubeEnv('sonar-server') {
-               sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Java-Springboot \
+               sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=springboot \
                -Dsonar.java.binaries=. \
-               -Dsonar.projectKey=Java-Springboot'''
+               -Dsonar.projectKey=springboot'''
               }
             }
         }
@@ -39,15 +39,15 @@ pipeline {
             steps {
              script {
                  
-                    sh 'docker build -t java-spring .'
+                    sh 'docker build -t java-spring-image .'
                     }
                   }
         }
          stage('docker push') {
             steps {
              script {
-                    sh 'docker tag java-spring sandhyareddy2713/javaspring-boot'
-                    sh 'docker push sandhyareddy2713/javaspring-boot'
+                    sh 'docker tag java-spring-image sandhyareddy2713/spring-boot'
+                    sh 'docker push sandhyareddy2713/spring-boot'
                   
                     }
                   }
@@ -55,7 +55,7 @@ pipeline {
         stage('docker container') {
             steps {
              script {
-                    sh 'docker run -itd --name ci-cd-container -p 8085:8081 java-spring'
+                    sh 'docker run -itd --name ci-cd-container -p 8085:8081 java-spring-image'
                   }
               }
             
