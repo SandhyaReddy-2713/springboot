@@ -1,4 +1,5 @@
 FROM openjdk:17-alpine
-COPY target/demo-0.0.1-SNAPSHOT.jar app.jar
+WORKDIR /build
+COPY target/demo-0.0.1-SNAPSHOT.jar /build 
 EXPOSE 8081
 
