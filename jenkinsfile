@@ -46,7 +46,7 @@ pipeline {
         stage('docker container') {
             steps {
              script {
-                    sh 'docker run -itd --name ci-cd-conti -p 3003:8081 javaspring-image'
+                    sh 'docker run -itd --name -p 3002:8081 javaspring-image'
                   }
               }
             
