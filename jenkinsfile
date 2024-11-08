@@ -39,14 +39,14 @@ pipeline {
             steps {
              script {
                  
-                    sh 'docker build -t javaspring-image .'
+                    sh 'docker build -t java-spring-image .'
                     }
                   }
         }
         stage('docker container') {
             steps {
              script {
-                    sh 'docker run -itd -p 85:8081 javaspring-image'
+                    sh 'docker run -itd -p 3003:8081 javas-pring-image'
                   }
               }
             
