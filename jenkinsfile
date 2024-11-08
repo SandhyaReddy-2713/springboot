@@ -46,7 +46,7 @@ pipeline {
         stage('docker container') {
             steps {
              script {
-                    sh 'docker run -itd -p 8008:8081 javas-pring-image'
+                    sh 'docker run -itd -p 4004:8081 javas-pring-image'
                   }
               }
             
