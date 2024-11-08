@@ -46,7 +46,7 @@ pipeline {
         stage('docker container') {
             steps {
              script {
-                    sh 'docker run -itd -p 3005:8081 javaspring-image'
+                    sh 'docker run -itd -p 3009:8081 javaspring-image'
                   }
               }
             
