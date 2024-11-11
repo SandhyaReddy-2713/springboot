@@ -37,17 +37,13 @@ pipeline {
         }
          stage('docker build') {
             steps {
-             script {
                  sh 'docker build -t java-image .'
-                    }
                   }
         }
         stage('docker container') {
             steps {
-             script {
                     sh 'docker run -itd --name java-con1 -p 3003:8081 java-image'
                     }
-                  }
         }    
     }	
  
